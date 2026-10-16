@@ -99,4 +99,13 @@ Apache License 2.0. See `LICENSE` and `NOTICE`.
 
 ## Citation
 
-Umar Iqbal. *What It Is, Not What It Says: Securing Agentic Browsing Interactions with Web Semantics.* 2026.
+If you use this code in your research, please cite our paper:
+
+```bibtex
+@misc{iqbal2026intact,
+  title={{What It Is, Not What It Says: Securing Agentic Browsing Interactions with Web Semantics}},
+  author={Iqbal, Umar},
+  howpublished={arXiv preprint},
+  year={2026}
+}
+```
