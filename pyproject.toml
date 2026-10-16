@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "intact"
+version = "0.1.0"
+description = "Browser instrumentation and GenTree: a per-element page representation with provenance and capabilities"
+readme = "README.md"
+requires-python = ">=3.11"
+license = "Apache-2.0"
+license-files = ["LICENSE", "NOTICE"]
+authors = [{ name = "Umar Iqbal" }]
+dependencies = [
+    "playwright==1.58.0",
+    "tldextract==5.3.1",
+]
+
+[project.urls]
+Repository = "https://github.com/llm-platform-security/intact"
+
+[project.optional-dependencies]
+test = ["pytest"]
+
+[tool.setuptools.packages.find]
+include = ["intact*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]

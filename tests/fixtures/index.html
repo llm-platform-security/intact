@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Provenance Test Page</title>
+</head>
+<body>
+
+  <!-- Parser-created static elements — must NOT appear in provenance -->
+  <button id="static-btn">Static Button</button>
+  <a id="static-link" href="#">Static Link</a>
+  <input id="static-input" type="text">
+
+  <div id="container"></div>
+
+  <!-- 1p external script -->
+  <script src="/first_party.js"></script>
+  <!-- 3p external script (served from thirdparty.test) -->
+  <script src="https://thirdparty.test/third_party.js"></script>
+
+  <script>
+    // createElement from inline script
+    var btn = document.createElement('button');
+    btn.id = 'inline-created-btn';
+    btn.textContent = 'Inline Created';
+    document.getElementById('container').appendChild(btn);
+
+    // innerHTML from inline script
+    var div1 = document.createElement('div');
+    div1.id = 'innerHTML-container';
+    document.getElementById('container').appendChild(div1);
+    div1.innerHTML = '<a id="innerHTML-link" href="#">innerHTML link</a>';
+
+    // insertAdjacentHTML from inline script
+    var div2 = document.createElement('div');
+    div2.id = 'adj-container';
+    document.getElementById('container').appendChild(div2);
+    div2.insertAdjacentHTML('beforeend', '<span id="adj-span">Adjacent</span>');
+
+    // addEventListener from inline script
+    var listenerBtn = document.createElement('button');
+    listenerBtn.id = 'listener-btn';
+    listenerBtn.textContent = 'Listener';
+    document.getElementById('container').appendChild(listenerBtn);
+    listenerBtn.addEventListener('click', function() {});
+
+    // setAttribute(aria-label) from inline script
+    var attrDiv = document.createElement('div');
+    attrDiv.id = 'attr-mod-div';
+    attrDiv.setAttribute('aria-label', 'aria label set by inline');
+    document.getElementById('container').appendChild(attrDiv);
+
+    // img with 3p src (load attribute)
+    var img3p = document.createElement('img');
+    img3p.id = 'inline-3p-img';
+    img3p.src = 'https://thirdparty.test/pixel.gif';
+    document.getElementById('container').appendChild(img3p);
+
+    // inline script dynamically injects chain_a.js (3p) — tests inline→3p chain
+    var chainATag = document.createElement('script');
+    chainATag.id = 'chain-a-script-tag';
+    chainATag.src = 'https://thirdparty.test/chain_a.js';
+    document.head.appendChild(chainATag);
+  </script>
+
+</body>
+</html>
