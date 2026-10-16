@@ -1,6 +1,6 @@
 # Intact
 
-Source code of **Intact**, from the paper *What It Is, Not What It Says: Securing Agentic Browsing Interactions with Web Semantics*.
+A framework for secure agentic web interactions.
 
 - **Browser instrumentation.** Intact uses the Chrome DevTools Protocol (CDP) to register a script that runs in every frame before the page's own scripts. The script wraps the main DOM interfaces through which scripts create, insert, and modify elements, and it attributes each call to the script on the JavaScript call stack.
 - **GenTree.** Intact builds GenTree, a representation of the page with one record per element. GenTree combines the DOM of every frame, the accessibility tree, and the instrumentation's provenance, and it labels each element with its capabilities: the interactions it affords, the effects those can have in the browser, and the channels through which its content reaches an agent.
