@@ -6,10 +6,7 @@ A framework for secure agentic web interactions.
 - **GenTree.** Intact builds GenTree, a representation of the page with one record per element. GenTree combines the DOM of every frame, the accessibility tree, and the instrumentation's provenance, and it labels each element with its capabilities: the interactions it affords, the effects those can have in the browser, and the channels through which its content reaches an agent.
 - **Planner.** Intact passes the page to the LLM one element of GenTree at a time, so the LLM decides on each element without any other element's text. Each call sees the user's request, the element's own markup, and a log of the operations decided so far. The release also includes Vanilla, the baseline of our evaluation, which plans from the whole page in one call.
 - **Functionality extraction.** An LLM writes the tasks for our evaluation. It reads each page's markup, in the same view that the planner uses, and returns five realistic requests that a user might make of an agent on that page.
-
-Coming soon!
-
-- **Attack benchmark.** The benchmark holds 1,091 real webpages, each with a user task and one injected attack. The paper compares Intact's planner with a conventional planner on these pages.
+- **Attack benchmark.** The benchmark holds 1,091 real webpages, each with a user task and one injected attack. The paper compares Intact's planner with a conventional planner on these pages. The benchmark is on [Hugging Face](https://huggingface.co/datasets/umariqbal/web-agent-attack-benchmark).
 
 ## Install
 
