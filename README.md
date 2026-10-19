@@ -129,7 +129,10 @@ If you use this code in your research, please cite our paper:
 @misc{iqbal2026intact,
   title={{What It Is, Not What It Says: Securing Agentic Browsing Interactions with Web Semantics}},
   author={Iqbal, Umar},
-  howpublished={arXiv preprint},
-  year={2026}
+  year={2026},
+  eprint={2610.22697},
+  archivePrefix={arXiv},
+  primaryClass={cs.CR},
+  url={https://arxiv.org/abs/2610.22697}
 }
 ```
